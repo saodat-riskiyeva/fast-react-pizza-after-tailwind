@@ -10,4 +10,6 @@ function Username() {
   );
 }
 
+export const getUsername = (state) => state.user.username;
+
 export default Username;
