@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
 import LinkButton from '../../ui/LinkButton';
 import Button from '../../ui/Button';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getCart } from './cartSlice';
 import { getUsername } from '../user/Username';
+import EmptyCart from './EmptyCart';
 
 // const fakeCart = [
 //   {
@@ -34,6 +34,8 @@ function Cart() {
   const username = useSelector(getUsername);
   const cart = useSelector(getCart);
   const dispatch = useDispatch();
+
+  if (!cart.length) return <EmptyCart />;
 
   return (
     <div className="px-4 py-3">
